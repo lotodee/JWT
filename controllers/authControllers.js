@@ -64,7 +64,9 @@ try{
 res.status(200).json({user:user._id})
  }
 catch(err){
+  console.log(err) 
 res.status(404).json({})
+
 }
 }
 

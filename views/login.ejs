@@ -23,7 +23,7 @@
             emailError.textContent=''
             passwordError.textContent=''
         
-        console.log(email , password)
+        //console.log(email , password)
 
         try{
    const res = await fetch('/login' , {
@@ -39,9 +39,10 @@
     emailError.textContent=data.errors.email
     passwordError.textContent=data.errors.password
    }
-   if(data){
+   if(data.user){
     location.assign('/')
 }
+ 
         }catch(Err){
             console.log(Err)
         }
