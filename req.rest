@@ -3,3 +3,22 @@ POST http://localhost:3000/signup
 ####
 
 POST http://localhost:3000/login
+
+
+
+const { application } = require('express')
+const express = require('express')
+const User = require("../models/User")
+
+module.exports.set_cookie=(req,res)=>{
+    res.cookie('newUser' ,false,{maxAge:1000*60*60*24})//1 day before expiry
+res.cookie('isEmployed' , true ,{maxAge:1000*60*60*24})
+    res.send('we have the cookie set and a name and also value')
+}
+
+module.exports.read_cookie=(req,res)=>{
+    const cookies = req.cookies
+    console.log(cookies)
+    console.log(cookies.isEmployed)
+    res.json(cookies)
+}
